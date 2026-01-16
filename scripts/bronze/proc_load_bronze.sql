@@ -4,12 +4,14 @@ Stored Procedure: Load Bronze Layer (Source -> Bronze)
 ===================================================================================
 
 Script Purpose:
-    This stored procedure loads data into 'Bronze' schema from eternal CSV files.
+    This stored procedure loads raw data into the Bronze schema
+    from external CSV files (file-based ingestion).
+
     It Performs the following actions:
     - Truncates the bronze tables before loading data.
-    - Uses the 'COPY' command to load data from the csv files to bronze tables.
-    - Calculate the time taken by each tables.
-    - Calculate whole time of the Batch time to load.
+    - Use the Postgres COPY command to load data from the CSV files.
+    - Measures load time per table.
+    - Measures total batch execution time.
 -----------------------------------------------------------------------------------
 Parameters:
 -----------------------------------------------------------------------------------
