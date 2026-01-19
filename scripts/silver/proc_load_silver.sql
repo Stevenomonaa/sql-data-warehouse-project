@@ -383,24 +383,24 @@ BEGIN
 		sls_cust_id,
 	    CASE 
 	        WHEN sls_order_dt = 0 
-	             OR LENGTH(CAST(sls_order_dt AS VARCHAR)) != 8 THEN NULL
+	             OR LENGTH(CAST(sls_order_dt AS VARCHAR)) <> 8 THEN NULL
 	        ELSE TO_DATE(CAST(sls_order_dt AS VARCHAR), 'YYYYMMDD')
 	    END AS sls_order_dt,
 		CASE 
 	        WHEN sls_ship_dt = 0 
-	             OR LENGTH(CAST(sls_ship_dt AS VARCHAR)) != 8 THEN NULL
+	             OR LENGTH(CAST(sls_ship_dt AS VARCHAR)) <> 8 THEN NULL
 	        ELSE TO_DATE(CAST(sls_ship_dt AS VARCHAR), 'YYYYMMDD')
 	    END AS sls_ship_dt,
 		CASE 
 	        WHEN sls_due_dt = 0 
-	             OR LENGTH(CAST(sls_due_dt AS VARCHAR)) != 8 THEN NULL
+	             OR LENGTH(CAST(sls_due_dt AS VARCHAR)) <> 8 THEN NULL
 	        ELSE TO_DATE(CAST(sls_due_dt AS VARCHAR), 'YYYYMMDD')
 	    END AS sls_due_dt,
 	    CASE
 	        WHEN sls_sales IS NULL THEN ABS(sls_quantity) * ABS(COALESCE(sls_price,0)) 
 	        WHEN sls_sales < 0 THEN ABS(sls_sales)
 	        WHEN sls_sales = 0 THEN ABS(sls_quantity) * ABS(COALESCE(sls_price,0)) 
-	        WHEN ABS(sls_quantity) * ABS(sls_price) != sls_sales THEN ABS(sls_quantity) * ABS(sls_price)
+	        WHEN ABS(sls_quantity) * ABS(sls_price) <> sls_sales THEN ABS(sls_quantity) * ABS(sls_price)
 	        ELSE sls_sales
 	    END AS sls_sales, -- Handle invalid data & recalculate if original value is missing or incorrect
 		ABS(sls_quantity) AS sls_quantity,
@@ -415,7 +415,7 @@ BEGIN
 	WHERE
 	    sls_order_dt <= sls_ship_dt 
 	    AND sls_order_dt <= sls_due_dt
-		AND sls_quantity != 0;
+		AND sls_quantity <> 0;
 		
 
 	-- Count Rows
