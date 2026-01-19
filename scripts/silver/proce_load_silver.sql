@@ -313,7 +313,7 @@ BEGIN
 	INSERT INTO silver.crm_prd_info (
 		prd_id,
 		cat_id,
-		sls_prd_key,
+		prd_key,
 		prd_nm,
 		prd_cost,
 		prd_line,
@@ -334,7 +334,7 @@ BEGIN
 	        ELSE 'n/a'
 	    END AS prd_line, -- Normalization of prd_line
 		prd_start_dt,
-		LEAD(prd_start_dt) OVER ( PARTITION BY prd_key ORDER BY prd_start_dt) - '1 DAY' AS prd_end_dt
+		LEAD(prd_start_dt) OVER ( PARTITION BY prd_key ORDER BY prd_start_dt) - INTERVAL '1 DAY' AS prd_end_dt
 	FROM 
 		bronze.crm_prd_info;
 
