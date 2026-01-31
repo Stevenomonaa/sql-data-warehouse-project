@@ -51,8 +51,15 @@ data-warehouse-project/
 │   ├── data_flow.drawio                # Draw.io file for the data flow diagram
 |   ├── data_integeration.drawio        # Draw.io file for the data integration diagram
 │   ├── data_models.drawio              # Draw.io file for data models (star schema)
-│   ├── naming-conventions.md           # Consistent naming guidelines for tables, columns, and files
-│
+│   ├── naming-conventions.md          # Consistent naming guidelines for tables, columns, and files
+│   
+├── reports/
+|   ├── 1_gold_layer_datasets/          # Datasets used for reporting and analysis.
+│   ├── eda/                            # Exploratory Data Analysis (EDA) scripts.
+│   ├── advanced_eda/                   # Advanced EDA scripts and analyses.
+│   ├── 12_report_customers.sql         # SQL script for the customer report.
+│   └── 13_report_products.sql          # SQL script for the product report.
+
 ├── scripts/                            # SQL scripts for ETL and transformations
 │   ├── bronze/                         # Scripts for extracting and loading raw data
 │   ├── gold/                           # Scripts for creating analytical models
