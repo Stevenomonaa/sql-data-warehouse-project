@@ -4,7 +4,7 @@
 - My name is **Steven Omonaa Dokubo** ! 😁
 - A CompTia Certified Data Analyst.
 
-Welcome to this **Modern Data Warehouse & Analytics End-to-End Project** project using **PostgreSQL**! 
+Welcome to this **Modern Data Warehouse & Analytics End-to-End Project** using **PostgreSQL**! 
 
 ---
 ## 📖 Project Overview
